@@ -110,7 +110,7 @@ if (radiobuttons[0].isSelected()){
 itog = area + hot_water*TARIF_HOT_WATER + cold_water*TARIF_COLD_WATER + 
 gas*v_gas + svet*v_svet; 
 // Округляем
-•	 
+	 
 результат расчета до сотых (до копеек) 
 
 itog = Math.rint(100.0*itog)/100.0; 
