@@ -165,3 +165,44 @@ if(arrTf.length>=0){
         arrTf[16].setText(String.format("%.2f", q5)); //выводим цену в 17 т.п.
         arrTf[17].setText(String.format("%.2f", summa)); //выводим цену в 18 т.п.
     }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new plata();
+            }
+        });
+    }
+
+    //Метод обработки события нажатия на кнопку
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //узнаем имя кнопки, на которую нажали
+        if (e.getActionCommand().equals("Расчет")) {
+            try {
+                //выполняем расчет
+              kvartira();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Проверьте правильность ввода");
+            }
+            
+        }else{
+            //очищаем все поля
+            for(int i=0; i<arrTf.length; i++){
+                arrTf[i].setText("");
+            }
+        }
+        
+    }
+}
+
+package plata;
+
+import junit.framework.TestCase;
+public class dTest extends TestCase {
+public void test() {
+plata testing = new plata();//Присваивание класса 
+assertNotNull("Тариф на газ", testing.arrTf[3]);//Проверка, что объект не null
+assertNotNull("Количество проживающих", testing.arrTf[4]);//Проверка, что объект не null
+assertNotNull("Объем потраченного газа", testing.arrTf[5]);//Проверка, что объект не null
+}}
